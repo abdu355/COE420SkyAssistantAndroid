@@ -18,6 +18,9 @@ android {
         }
     }
 }
+repositories {
+    maven { url "https://jitpack.io" }
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -26,4 +29,6 @@ dependencies {
     compile 'com.android.support:design:23.3.0'
     compile 'com.prolificinteractive:material-calendarview:1.2.0'
     compile 'com.android.support:support-v4:23.3.0'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
+    compile 'com.commit451:NativeStackBlur:1.0.2'
 }

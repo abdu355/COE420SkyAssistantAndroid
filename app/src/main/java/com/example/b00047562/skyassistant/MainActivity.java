@@ -7,11 +7,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button prefs;
+    Button prefs,airview,sugg;
+    ListView list;
+    ArrayList<String> arritems;
+    ArrayAdapter<String> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,14 +27,50 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-
+        list=(ListView)findViewById(R.id.listView);
         prefs=(Button)findViewById(R.id.btn_prefs);
+        airview=(Button)findViewById(R.id.btn_airlineview);
+        sugg=(Button)findViewById(R.id.btn_suggestions);
+
+
         prefs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),UserPreferences.class));
             }
         });
+        airview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),AirlineView.class));
+            }
+        });
+        sugg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),Suggestions.class));
+            }
+        });
+
+        arritems = new ArrayList<String>();
+
+        //Dummy values
+        arritems.add("Flight 1\n\n\n\n\n\n4/11/16 13:20");
+        arritems.add("Flight 2\n\n\n\n\n\n4/11/16 13:20");
+        arritems.add("Flight 3\n\n\n\n\n\n4/11/16 13:20");
+        arritems.add("Flight 4\n\n\n\n\n\n4/11/16 13:20");
+        arritems.add("Flight 5\n\n\n\n\n\n4/11/16 13:20");
+        arritems.add("Flight 6\n\n\n\n\n\n4/11/16 13:20");
+        arritems.add("Flight 7\n\n\n\n\n\n4/11/16 13:20");
+        arritems.add("Flight 8\n\n\n\n\n\n4/11/16 13:20");
+        arritems.add("Flight 9\n\n\n\n\n\n4/11/16 13:20");
+        // Adapter: You need three parameters 'the context, id of the layout (it will be where the data is shown),
+        // and the array that contains the data
+        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arritems);
+
+        // Here, you set the data in your ListView
+        list.setAdapter(adapter);
+
     }
 
 

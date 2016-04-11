@@ -74,4 +74,21 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="title_activity_addevent_dialogue">Add Event</string>
+
+    <string-array name="dummy_data">
+        <item>Flight One\t4/11/16 13:20</item>
+        <item>Flight Two\t4/11/16 13:20</item>
+        <item>Flight Three\t4/11/16 13:20</item>
+        <item>Flight Four   4/11/16 13:20</item>
+        <item>Flight Five   4/11/16 13:20</item>
+        <item>Flight Six    4/11/16 13:20</item>
+        <item>Flight Seven  4/11/16 13:20</item>
+        <item>Flight Eight  4/11/16 13:20</item>
+        <item>Flight Nine   4/11/16 13:20</item>
+        <item>Flight Ten    4/11/16 13:20</item>
+    </string-array>
+    <string name="title_activity_airline_view">AirlineView</string>
+    <string name="title_activity_suggestions">Suggestions</string>
+    <string name="title_activity_suggested_item_view">SuggestedItemView</string>
 </resources>

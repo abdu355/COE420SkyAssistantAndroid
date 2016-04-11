@@ -6,6 +6,7 @@ import android.provider.CalendarContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -26,17 +27,20 @@ public class UserPreferences extends AppCompatActivity implements View.OnClickLi
 
     Button addevent;
     MaterialCalendarView cal;
-    EditText eventname;
+    //EditText eventname;
+    CalendarDay calday;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         cal = (MaterialCalendarView) findViewById(R.id.calendarView);
-        eventname = (EditText)findViewById(R.id.editText);
+        //eventname = (EditText)findViewById(R.id.editText);
         addevent = (Button) findViewById(R.id.btn_addevent);
         addevent.setOnClickListener(this);
 
@@ -50,21 +54,14 @@ public class UserPreferences extends AppCompatActivity implements View.OnClickLi
         {
             case R.id.btn_addevent:
 
-                Long time = null;
                 try {
-                    CalendarDay calday = cal.getSelectedDate();
-                    time = calday.getDate().getTime();
+                    calday = cal.getSelectedDate();
+
+                    Intent sendtoDiag = new Intent(getApplicationContext(),AddeventDialogue.class);
+                    sendtoDiag.putExtra("calendarTime",calday.getDate().getTime());
+                    startActivity(sendtoDiag);
 
 
-                    Intent intent = new Intent(Intent.ACTION_EDIT);
-                    intent.setType("vnd.android.cursor.item/event");
-                    intent.putExtra("beginTime", time);
-                    intent.putExtra("allDay", true);
-                    intent.putExtra("rrule", "FREQ=YEARLY");
-                    intent.putExtra("endTime", time+60*60*1000);
-                    intent.putExtra("title", "SkyAssistantEvent "+eventname.getText());;
-
-                    startActivity(intent);
                 } catch (Exception e) {
                     Toast.makeText(getApplicationContext(),"Select a Date first !",Toast.LENGTH_SHORT).show();
                 }
@@ -72,4 +69,7 @@ public class UserPreferences extends AppCompatActivity implements View.OnClickLi
 
         }
     }
+
+
+
 }
