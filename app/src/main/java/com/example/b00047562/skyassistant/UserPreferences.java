@@ -1,6 +1,9 @@
 package com.example.b00047562.skyassistant;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.annotation.NonNull;
@@ -13,8 +16,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.commit451.nativestackblur.NativeStackBlur;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
@@ -29,6 +34,7 @@ public class UserPreferences extends AppCompatActivity implements View.OnClickLi
     MaterialCalendarView cal;
     //EditText eventname;
     CalendarDay calday;
+    RelativeLayout userprefback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,14 @@ public class UserPreferences extends AppCompatActivity implements View.OnClickLi
         //eventname = (EditText)findViewById(R.id.editText);
         addevent = (Button) findViewById(R.id.btn_addevent);
         addevent.setOnClickListener(this);
+
+        //------------------------------------------------------ Add background image
+        userprefback=(RelativeLayout)findViewById(R.id.userprefback);
+        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.rsz_1itemback);
+        Bitmap bm = NativeStackBlur.process(back, 250);
+        BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
+        userprefback.setBackground(ob);
+        //------------------------------------------------------ Add background image
 
 
     }

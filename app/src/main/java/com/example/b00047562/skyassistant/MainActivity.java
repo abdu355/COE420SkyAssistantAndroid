@@ -1,6 +1,9 @@
 package com.example.b00047562.skyassistant;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +13,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+
+import com.commit451.nativestackblur.NativeStackBlur;
 
 import java.util.ArrayList;
 
@@ -19,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     ListView list;
     ArrayList<String> arritems;
     ArrayAdapter<String> adapter;
+
+    RelativeLayout mainback;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
         airview=(Button)findViewById(R.id.btn_airlineview);
         sugg=(Button)findViewById(R.id.btn_suggestions);
 
+        //------------------------------------------------------ Add background image
+        mainback=(RelativeLayout)findViewById(R.id.mainback);
+        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.rsz_1itemback);
+        Bitmap bm = NativeStackBlur.process(back, 250);
+        BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
+        mainback.setBackground(ob);
+        //------------------------------------------------------ Add background image
 
         prefs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Here, you set the data in your ListView
         list.setAdapter(adapter);
+
 
     }
 

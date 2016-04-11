@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.b00047562.skyassistant.AirlineView"
-    tools:showIn="@layout/activity_airline_view">
+    tools:showIn="@layout/activity_airline_view"
+    android:id="@+id/airlineback">
 
 
     <TextView

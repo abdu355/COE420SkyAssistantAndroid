@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".UserPreferences"
-    tools:showIn="@layout/activity_preferences">
+    tools:showIn="@layout/activity_preferences"
+    android:id="@+id/userprefback">
 
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         android:id="@+id/calendarView"
@@ -18,8 +19,11 @@
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         app:mcv_showOtherDates="all"
-        app:mcv_selectionColor="#00F"
-        />
+        app:mcv_selectionColor="#c06abadf"
+        app:mcv_arrowColor="#fafeff"
+        app:mcv_weekDayTextAppearance="@style/CalText"
+        app:mcv_dateTextAppearance="@style/CalText"
+        app:mcv_headerTextAppearance="@style/CalText"/>
 
     <Button
         android:layout_width="fill_parent"

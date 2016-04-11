@@ -1,14 +1,19 @@
 package com.example.b00047562.skyassistant;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.RelativeLayout;
 
+import com.commit451.nativestackblur.NativeStackBlur;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
@@ -28,6 +33,8 @@ public class AirlineView extends AppCompatActivity {
     BarChart chart;
     LineChart lineChart;
     private Typeface mTf;
+    RelativeLayout airlineback;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +45,18 @@ public class AirlineView extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+//------------------------------------------------------ Add background image
+        airlineback=(RelativeLayout)findViewById(R.id.airlineback);
+        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.rsz_1itemback);
+        Bitmap bm = NativeStackBlur.process(back, 250);
+        BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
+        //airlineback.setBackground(ob);
+        //------------------------------------------------------ Add background image
 
         // in this example, a LineChart is initialized from xml
         chart = (BarChart) findViewById(R.id.chart);
         lineChart=(LineChart)findViewById(R.id.chart2);
+
 
 
 
@@ -135,13 +150,19 @@ public class AirlineView extends AppCompatActivity {
         BarDataSet barDataSet1 = new BarDataSet(valueSet1, "Emirates Airlines");
         barDataSet1.setColor(Color.rgb(0, 155, 0));
         barDataSet1.setValueTextSize(10);
+        barDataSet1.setValueTextColor(R.color.textColor);
         BarDataSet barDataSet2 = new BarDataSet(valueSet2, "Other Airlines");
         barDataSet2.setColors(ColorTemplate.COLORFUL_COLORS);
         barDataSet2.setValueTextSize(10);
+        barDataSet2.setValueTextColor(R.color.textColor);
+
 
         dataSets = new ArrayList<>();
         dataSets.add(barDataSet1);
         dataSets.add(barDataSet2);
         return dataSets;
+
+
+
     }
 }

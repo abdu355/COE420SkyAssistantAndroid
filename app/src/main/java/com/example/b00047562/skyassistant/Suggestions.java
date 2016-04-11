@@ -1,6 +1,9 @@
 package com.example.b00047562.skyassistant;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.RelativeLayout;
+
+import com.commit451.nativestackblur.NativeStackBlur;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +25,7 @@ public class Suggestions extends AppCompatActivity {
     ExpandableListAdapter listAdapter;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+    RelativeLayout suggback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +64,13 @@ public class Suggestions extends AppCompatActivity {
                 return false;
             }
         });
+        //------------------------------------------------------ Add background image
+        suggback=(RelativeLayout)findViewById(R.id.suggback);
+        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.rsz_1itemback);
+        Bitmap bm = NativeStackBlur.process(back, 250);
+        BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
+        suggback.setBackground(ob);
+        //------------------------------------------------------ Add background image
 
 
 

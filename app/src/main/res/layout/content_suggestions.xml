@@ -12,7 +12,8 @@
     tools:context="com.example.b00047562.skyassistant.Suggestions"
     tools:showIn="@layout/activity_suggestions"
     android:animateLayoutChanges="true"
-    android:animationCache="true">
+    android:animationCache="true"
+    android:id="@+id/suggback">
 
     <ExpandableListView
         android:layout_width="wrap_content"
