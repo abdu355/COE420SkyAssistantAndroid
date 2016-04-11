@@ -50,7 +50,7 @@ public class AirlineView extends AppCompatActivity {
         Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.rsz_1itemback);
         Bitmap bm = NativeStackBlur.process(back, 250);
         BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
-        //airlineback.setBackground(ob);
+        airlineback.setBackground(ob);
         //------------------------------------------------------ Add background image
 
         // in this example, a LineChart is initialized from xml

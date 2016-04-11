@@ -20,7 +20,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Flight Prices for Preferred Airlines"
         android:id="@+id/textView2"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="#ffffff" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart"
