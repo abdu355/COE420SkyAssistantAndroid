@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         switch(item.getItemId())
         {
             case R.id.logout:
-                finish(); //temporary logout
+               startActivity(new Intent(getApplicationContext(),LoginActivity.class)); //temporary logout
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

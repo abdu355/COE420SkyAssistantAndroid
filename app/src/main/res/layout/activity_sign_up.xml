@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.b00047562.skyassistant.SignUp">
+    tools:context="com.example.b00047562.skyassistant.SignUp"
+    android:id="@+id/signupback">
 
     <LinearLayout
         android:orientation="vertical"
@@ -37,10 +38,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:text="Name"
+                    android:hint="Name"
                     android:ems="10"
                     android:id="@+id/name"
-                    android:focusable="false" />
+                    android:focusable="true"
+                    android:textColor="#ffffff"
+                    android:text="myName" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -48,33 +51,42 @@
                     android:inputType="date"
                     android:ems="10"
                     android:id="@+id/DOB"
-                    android:text="Date of Birth" />
+                    android:hint="Date of Birth"
+                    android:textColor="#ffffff"
+                    android:text="01/01/2016"
+                    android:focusable="false" />
 
                 <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/country" />
+                    android:layout_width="fill_parent"
+                    android:layout_height="80dp"
+                    android:id="@+id/country"
+                    android:textColor="#ffffff"
+                    android:popupBackground="@color/colorPrimaryDark"/>
 
                 <AutoCompleteTextView
                     android:id="@+id/email"
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="#ffffff"
+                    android:text="email@email.com" />
 
                 <EditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_password"
+                    android:hint="Password"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="#ffffff"
+                    android:text="blablabla" />
 
                 <Button
                     style="?android:textAppearanceSmall"
@@ -83,7 +95,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/action_singup"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="#ffffff" />
 
             </LinearLayout>
         </ScrollView>
