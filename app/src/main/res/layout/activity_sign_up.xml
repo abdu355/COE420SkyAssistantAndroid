@@ -50,13 +50,10 @@
                     android:id="@+id/DOB"
                     android:text="Date of Birth" />
 
-                <EditText
-                    android:layout_width="match_parent"
+                <Spinner
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="textPostalAddress"
-                    android:ems="10"
-                    android:id="@+id/country"
-                    android:text="Country" />
+                    android:id="@+id/country" />
 
                 <AutoCompleteTextView
                     android:id="@+id/email"
