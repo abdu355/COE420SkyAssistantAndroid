@@ -66,7 +66,7 @@ public class Suggestions extends AppCompatActivity {
         });
         //------------------------------------------------------ Add background image
         suggback=(RelativeLayout)findViewById(R.id.suggback);
-        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.rsz_1itemback);
+        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.skybackground2);
         Bitmap bm = NativeStackBlur.process(back, 250);
         BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
         suggback.setBackground(ob);

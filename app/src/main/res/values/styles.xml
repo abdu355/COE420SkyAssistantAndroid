@@ -6,7 +6,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:colorButtonNormal">@color/colorAccent</item>
+        <item name="android:buttonStyle">@style/MyButton</item>
+    </style>
+
+    <style name="MyButton" parent="android:Widget.Material.Button">
+        <item name="android:textSize">13sp</item>
+        <item name="android:layout_margin">0dip</item>
+        <item name="android:background">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

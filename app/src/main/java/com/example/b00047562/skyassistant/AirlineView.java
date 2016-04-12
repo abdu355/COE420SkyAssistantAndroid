@@ -47,7 +47,7 @@ public class AirlineView extends AppCompatActivity {
 
 //------------------------------------------------------ Add background image
         airlineback=(RelativeLayout)findViewById(R.id.airlineback);
-        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.rsz_1itemback);
+        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.skybackground2);
         Bitmap bm = NativeStackBlur.process(back, 250);
         BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
         airlineback.setBackground(ob);

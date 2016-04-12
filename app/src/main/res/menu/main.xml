@@ -1,12 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/item1"
+        android:id="@+id/settings"
         app:showAsAction="ifRoom|withText"
         android:title="Settings"
         android:icon="@drawable/ic_settings_black_48dp"/>
     <item
-        android:id="@+id/item2"
+        android:id="@+id/profile"
         app:showAsAction="ifRoom|withText"
         android:title="User Profile"
         android:icon="@drawable/ic_account_box_black_48dp"/>
