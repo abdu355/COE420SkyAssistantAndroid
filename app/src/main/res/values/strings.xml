@@ -91,4 +91,5 @@
     <string name="title_activity_airline_view">AirlineView</string>
     <string name="title_activity_suggestions">Suggestions</string>
     <string name="title_activity_suggested_item_view">SuggestedItemView</string>
+    <string name="action_singup">Sign Up</string>
 </resources>

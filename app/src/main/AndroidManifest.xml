@@ -67,6 +67,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.b00047562.skyassistant.Suggestions" />
         </activity>
+        <activity android:name=".SignUp"></activity>
     </application>
 
 </manifest>
