@@ -52,7 +52,7 @@ public class UserPreferences extends AppCompatActivity implements View.OnClickLi
 
         //------------------------------------------------------ Add background image
         userprefback=(RelativeLayout)findViewById(R.id.userprefback);
-        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.rsz_1itemback);
+        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.skybackground2);
         Bitmap bm = NativeStackBlur.process(back, 250);
         BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
         userprefback.setBackground(ob);

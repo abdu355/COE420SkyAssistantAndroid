@@ -33,7 +33,7 @@ public class SuggestedItemView extends AppCompatActivity {
 
         itemback=(RelativeLayout)findViewById(R.id.itemback);
 
-        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.rsz_1itemback);
+        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.skybackground2);
         Bitmap bm = NativeStackBlur.process(back, 250);
         BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
 

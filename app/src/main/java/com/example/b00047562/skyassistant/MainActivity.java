@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         //------------------------------------------------------ Add background image
         mainback=(RelativeLayout)findViewById(R.id.mainback);
-        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.rsz_1itemback);
+        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.skybackground2);
         Bitmap bm = NativeStackBlur.process(back, 250);
         BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
         mainback.setBackground(ob);
@@ -97,4 +98,15 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId())
+        {
+            case R.id.logout:
+                finish(); //temporary logout
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
