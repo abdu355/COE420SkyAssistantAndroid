@@ -33,6 +33,31 @@
                 android:layout_height="match_parent"
                 android:id="@+id/email_signup_form">
 
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Name"
+                    android:ems="10"
+                    android:id="@+id/name"
+                    android:focusable="false" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:ems="10"
+                    android:id="@+id/DOB"
+                    android:text="Date of Birth" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPostalAddress"
+                    android:ems="10"
+                    android:id="@+id/country"
+                    android:text="Country" />
+
                 <AutoCompleteTextView
                     android:id="@+id/email"
                     android:layout_width="match_parent"
@@ -62,6 +87,7 @@
                     android:layout_marginTop="16dp"
                     android:text="@string/action_singup"
                     android:textStyle="bold" />
+
             </LinearLayout>
         </ScrollView>
 
