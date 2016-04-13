@@ -52,12 +52,12 @@ public class Suggestions extends AppCompatActivity {
                 switch(i1) {
                     case 0:
                         // Go to child #0 specific class.
-                        Intent child0Intent = new Intent(getApplicationContext(), SuggestedItemView.class);
+                        Intent child0Intent = new Intent(getApplicationContext(), newReservation.class);
                         startActivity(child0Intent);
                         break;
                     case 1:
                         // Go to child #1 specific class.
-                        Intent child1Intent = new Intent(getApplicationContext(), SuggestedItemView.class);
+                        Intent child1Intent = new Intent(getApplicationContext(), newReservation.class);
                         startActivity(child1Intent);
                         break;
                 }

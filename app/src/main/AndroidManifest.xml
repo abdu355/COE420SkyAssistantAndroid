@@ -86,6 +86,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.b00047562.skyassistant.LoginActivity"/>
         </activity>
+        <activity android:name=".newReservation"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"
+            android:label="New Reservation"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name=".Checkout"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"
+            android:label="Checkout"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name=".Confirmation"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"
+            android:label="Confirmation"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>

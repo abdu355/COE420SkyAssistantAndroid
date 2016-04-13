@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.b00047562.skyassistant.Confirmation">
+    tools:context="com.example.b00047562.skyassistant.Confirmation"
+    android:id="@+id/confirmback">
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,7 +17,8 @@
         android:text="Thank you! Thats All!"
         android:id="@+id/textView25"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,7 +27,8 @@
         android:text="We really appreciate your time"
         android:id="@+id/textView26"
         android:layout_below="@+id/textView25"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,5 +37,16 @@
         android:text="Follow us on twitter &amp; facebook for more offers"
         android:id="@+id/textView27"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Finish"
+        android:id="@+id/btn_finish"
+        android:layout_above="@+id/textView27"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="33dp"
+        android:textColor="#ffffff" />
 </RelativeLayout>
