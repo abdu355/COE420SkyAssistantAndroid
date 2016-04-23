@@ -1,6 +1,8 @@
 package com.example.b00047562.skyassistant;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,6 +18,9 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
 import com.commit451.nativestackblur.NativeStackBlur;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,7 +31,14 @@ import java.util.Locale;
 public class SignUp extends AppCompatActivity {
 
     RelativeLayout signupback;
-    EditText dob;
+    EditText usrdob;
+    EditText usremail;
+    EditText usrpass;
+    EditText usrname;
+    Spinner usrcountry;
+    private ProgressDialog mProgressDialog;
+    Button signup;
+
     private DatePickerDialog DatePickerDialog;
     private SimpleDateFormat dateFormatter;
 
@@ -46,8 +58,8 @@ public class SignUp extends AppCompatActivity {
         signupback.setBackground(ob);
         //------------------------------------------------------ Add background image
 
-        dob=(EditText)findViewById(R.id.DOB);
-        dob.setOnClickListener(new View.OnClickListener() {
+        usrdob=(EditText)findViewById(R.id.DOB);
+        usrdob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DatePickerDialog.show();
@@ -55,7 +67,7 @@ public class SignUp extends AppCompatActivity {
         });
 
         Locale[] locale = Locale.getAvailableLocales();
-        ArrayList<String> countries = new ArrayList<String>();
+        final ArrayList<String> countries = new ArrayList<String>();
         String country;
         for( Locale loc : locale ){
             country = loc.getDisplayCountry();
@@ -67,15 +79,89 @@ public class SignUp extends AppCompatActivity {
 
         Spinner citizenship = (Spinner)findViewById(R.id.country);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.spinner_items, countries);
+        assert citizenship != null;
         citizenship.setAdapter(adapter);
 
-        Button email_signup_button = (Button)findViewById(R.id.email_signup_button);
-        email_signup_button.setOnClickListener(new View.OnClickListener() {
+        signup = (Button)findViewById(R.id.signupbtn);
+        usrname = (EditText)findViewById(R.id.name);
+        usrpass =(EditText)findViewById(R.id.password);
+        usremail = (EditText)findViewById(R.id.email);
+        usrcountry = (Spinner)findViewById(R.id.country);
+
+
+
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                //startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                String username = usrname.getText().toString();
+                String password = usrpass.getText().toString();
+                String email = usremail.getText().toString();
+                String dob = usrdob.getText().toString();
+                String country = usrcountry.getSelectedItem().toString();
+
+                username = username.trim();
+                password = password.trim();
+                email = email.trim();
+
+                if (username.isEmpty() || password.isEmpty() || email.isEmpty() || dob.isEmpty()) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SignUp.this);
+                    builder.setMessage(R.string.signup_error_message)
+                            .setTitle(R.string.signup_error_title)
+                            .setPositiveButton(android.R.string.ok, null);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                } else {
+                    //setProgressBarIndeterminateVisibility(true);
+                    mProgressDialog = new ProgressDialog(SignUp.this);
+                    // Set progressdialog title
+                    mProgressDialog.setTitle("Creating User");
+                    // Set progressdialog message
+                    mProgressDialog.setMessage("Hang on...");
+                    mProgressDialog.setIcon(R.mipmap.ic_launcher);
+                    mProgressDialog.setIndeterminate(false);
+                    // Show progressdialog
+                    mProgressDialog.show();
+
+                    ParseUser newUser = new ParseUser();//create new user data
+                    newUser.setUsername(username);
+                    newUser.setPassword(password);
+                    newUser.setEmail(email);
+                    newUser.put("DOB", usrdob.getText().toString());
+                    newUser.put("Country", country);
+
+                    //newUser.pinInBackground();
+                    newUser.signUpInBackground(new SignUpCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            //setProgressBarIndeterminateVisibility(false);
+
+                            if (e == null) {
+                                // Success!
+                                mProgressDialog.dismiss();
+                                Intent intent = new Intent(SignUp.this, MainActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                            } else {
+                                try {
+                                    mProgressDialog.dismiss();
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(SignUp.this);
+                                    builder.setMessage(e.getMessage())
+                                            .setTitle(R.string.signup_error_title)
+                                            .setPositiveButton(android.R.string.ok, null);
+                                    AlertDialog dialog = builder.create();
+                                    dialog.show();
+                                } catch (Exception e1) {
+                                    e1.printStackTrace();
+                                }
+                            }
+                        }
+                    });
+                }
             }
         });
+
         setDateTimeField();
     }
 
@@ -87,7 +173,7 @@ public class SignUp extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, monthOfYear, dayOfMonth);
-                dob.setText(dateFormatter.format(newDate.getTime()));
+                usrdob.setText(dateFormatter.format(newDate.getTime()));
             }
 
         },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));

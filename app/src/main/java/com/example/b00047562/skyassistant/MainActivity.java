@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.commit451.nativestackblur.NativeStackBlur;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     ListView list;
     ArrayList<String> arritems;
     ArrayAdapter<String> adapter;
+    ParseUser currentUser;
 
     RelativeLayout mainback;
     @Override
@@ -88,7 +90,21 @@ public class MainActivity extends AppCompatActivity {
         list.setAdapter(adapter);
 
 
+        currentUser = ParseUser.getCurrentUser();//check if user logged in
+        //} catch (ParseException e) {
+        //    e.printStackTrace();
+        //}
+        if (currentUser == null) {
+            loadLoginView();
+        }
+
     }
+    public void loadLoginView() {
+        Intent intent = new Intent(this, Login.class); //go to login activity
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
 
 
     @Override
@@ -103,7 +119,9 @@ public class MainActivity extends AppCompatActivity {
         switch(item.getItemId())
         {
             case R.id.logout:
-               startActivity(new Intent(getApplicationContext(),LoginActivity.class)); //temporary logout
+               //startActivity(new Intent(getApplicationContext(),LoginActivity.class)); //temporary logout
+                ParseUser.logOut();//update Parse current user
+                loadLoginView();//load login activity
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

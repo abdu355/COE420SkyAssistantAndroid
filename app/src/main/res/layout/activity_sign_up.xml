@@ -42,8 +42,7 @@
                     android:ems="10"
                     android:id="@+id/name"
                     android:focusable="true"
-                    android:textColor="#ffffff"
-                    android:text="myName" />
+                    android:textColor="#ffffff" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -51,9 +50,8 @@
                     android:inputType="date"
                     android:ems="10"
                     android:id="@+id/DOB"
-                    android:hint="Date of Birth"
+                    android:hint="DOB"
                     android:textColor="#ffffff"
-                    android:text="01/01/2016"
                     android:focusable="false" />
 
                 <Spinner
@@ -71,8 +69,7 @@
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:textColor="#ffffff"
-                    android:text="email@email.com" />
+                    android:textColor="#ffffff" />
 
                 <EditText
                     android:id="@+id/password"
@@ -85,12 +82,11 @@
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:textColor="#ffffff"
-                    android:text="blablabla" />
+                    android:textColor="#ffffff" />
 
                 <Button
                     style="?android:textAppearanceSmall"
-                    android:id="@+id/email_signup_button"
+                    android:id="@+id/signupbtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"

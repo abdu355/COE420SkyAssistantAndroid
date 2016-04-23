@@ -92,4 +92,10 @@
     <string name="title_activity_suggestions">Suggestions</string>
     <string name="title_activity_suggested_item_view">SuggestedItemView</string>
     <string name="action_singup">Sign Up</string>
+
+    <string name="login_error_message">Fill in all fields</string>
+    <string name="login_error_title">Invalid Login</string>
+    <string name="signup_error_message">Fill all fields</string>
+    <string name="signup_error_title">Invalid</string>
+
 </resources>
