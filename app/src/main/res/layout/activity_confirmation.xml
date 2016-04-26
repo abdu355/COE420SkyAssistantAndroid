@@ -18,7 +18,7 @@
         android:id="@+id/textView25"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textColor="#ffffff" />
+        android:textColor="@color/abc_background_cache_hint_selector_material_dark" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,7 +28,7 @@
         android:id="@+id/textView26"
         android:layout_below="@+id/textView25"
         android:layout_centerHorizontal="true"
-        android:textColor="#ffffff" />
+        android:textColor="@color/abc_background_cache_hint_selector_material_dark" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
         android:id="@+id/textView27"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:textColor="#ffffff" />
+        android:textColor="@color/abc_background_cache_hint_selector_material_dark" />
 
     <Button
         android:layout_width="fill_parent"
@@ -48,5 +48,5 @@
         android:layout_above="@+id/textView27"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="33dp"
-        android:textColor="#ffffff" />
+        android:textColor="@color/abc_background_cache_hint_selector_material_dark" />
 </RelativeLayout>
