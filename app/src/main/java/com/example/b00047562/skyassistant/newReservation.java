@@ -47,7 +47,7 @@ public class newReservation extends AppCompatActivity {
         BT = (TextView) findViewById(R.id.bt);
         TicketNum = (TextView) findViewById(R.id.ticketnum);
 
-        // replace "" with value you get from the database
+        // replace "" with value you get from the DB
 
         AirLine.setText("");
         Name.setText("");
