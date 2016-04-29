@@ -5,6 +5,8 @@ import java.util.Date;
 /**
  * Created by Kareem on 4/25/2016.
  */
+
+
 public class Flight {
     int FlightID, Price;
     String Airline;
