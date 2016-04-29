@@ -6,14 +6,14 @@ import java.util.Date;
  * Created by Kareem on 4/25/2016.
  */
 
-
 public class Flight {
-    int FlightID, Price;
+    int  Price;
+    String FlightID;
     String Airline;
     String DepartureLoc, DestinationLoc;
     Date DepartureDate, ArrivalDate;
 
-    public Flight(int flightID, int price, String airline, String departureLoc, String destinationLoc, Date departureDate, Date arrivalDate) {
+    public Flight(String flightID, int price, String airline, String departureLoc, String destinationLoc, Date departureDate, Date arrivalDate) {
         FlightID = flightID;
         Price = price;
         Airline = airline;
@@ -23,11 +23,11 @@ public class Flight {
         ArrivalDate = arrivalDate;
     }
 
-    public int getFlightID() {
+    public String getFlightID() {
         return FlightID;
     }
 
-    public void setFlightID(int flightID) {
+    public void setFlightID(String flightID) {
         FlightID = flightID;
     }
 

@@ -4,6 +4,9 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,8 +19,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.commit451.nativestackblur.NativeStackBlur;
 import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -33,7 +39,8 @@ public class Login extends ActionBarActivity {
     protected Button signUpButton;
     private Spanned email_about= Html.fromHtml("<a href=\"hello.sah802@gmail.com\">hello.sah802@gmail.com</a>");
     private ProgressDialog mProgressDialog;
-
+    ScrollView loginformback;
+    LinearLayout loginback;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);//progress bar circle
@@ -41,7 +48,15 @@ public class Login extends ActionBarActivity {
         setContentView(R.layout.activity_login);
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
-
+//------------------------------------------------------ Add background image
+        loginformback=(ScrollView) findViewById(R.id.login_form);
+        loginback=(LinearLayout) findViewById(R.id.loginback);
+        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.skybackground2);
+        Bitmap bm = NativeStackBlur.process(back, 250);
+        BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
+        //loginformback.setBackground(ob);
+        loginback.setBackground(ob);
+        //------------------------------------------------------ Add background image
         //signUpButton = (Button)findViewById(R.id.btn_signup);
         emailEditText = (EditText)findViewById(R.id.email);
         passwordEditText = (EditText)findViewById(R.id.password);

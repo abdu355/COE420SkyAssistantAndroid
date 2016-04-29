@@ -49,17 +49,34 @@ public class Suggestions extends AppCompatActivity {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
 
-                switch(i1) {
+                if(i==0) { //group 1
+                    switch (i1) {
+                        case 0:
+                            // Go to child #0 specific class.
+                            Intent child0Intent = new Intent(getApplicationContext(), newReservation.class);
+                            startActivity(child0Intent);
+                            break;
+                        case 1:
+                            // Go to child #1 specific class.
+                            Intent child1Intent = new Intent(getApplicationContext(), newReservation.class);
+                            startActivity(child1Intent);
+                            break;
+                    }
+                }
+                else if (i==1) //group 2
+                {
+                    switch (i1) {
                     case 0:
                         // Go to child #0 specific class.
                         Intent child0Intent = new Intent(getApplicationContext(), newReservation.class);
-                        startActivity(child0Intent);
+                        //startActivity(child0Intent);
                         break;
                     case 1:
                         // Go to child #1 specific class.
                         Intent child1Intent = new Intent(getApplicationContext(), newReservation.class);
-                        startActivity(child1Intent);
+                        //startActivity(child1Intent);
                         break;
+                }
                 }
                 return false;
             }

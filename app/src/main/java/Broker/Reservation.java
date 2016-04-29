@@ -1,4 +1,6 @@
-package com.example.b00047562.skyassistant;
+package broker;
+
+import com.example.b00047562.skyassistant.Flight;
 
 import java.util.Date;
 
@@ -6,15 +8,22 @@ import java.util.Date;
  * Created by Kareem on 4/25/2016.
  */
 public class Reservation {
-    int ReservationID;
+    String ReservationID;
     Date ReservationDate;
     Flight flight;
+    String flightID;
 
-    public int getReservationID() {
+    public Reservation(String ID, String flightID, Date date)
+    {
+            ReservationID=ID;
+            this.flightID=flightID;
+            ReservationDate =date;
+    }
+    public String getReservationID() {
         return ReservationID;
     }
 
-    public void setReservationID(int reservationID) {
+    public void setReservationID(String reservationID) {
         ReservationID = reservationID;
     }
 
@@ -32,5 +41,13 @@ public class Reservation {
 
     public void setFlight(Flight flight) {
         this.flight = flight;
+    }
+
+    public String getFlightID() {
+        return flightID;
+    }
+
+    public void setFlightID(String flightID) {
+        this.flightID = flightID;
     }
 }

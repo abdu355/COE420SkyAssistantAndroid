@@ -1,4 +1,4 @@
-package dbhandler;
+package com.example.b00047562.skyassistant;
 
 import android.app.Application;
 
