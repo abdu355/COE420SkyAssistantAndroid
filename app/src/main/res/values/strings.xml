@@ -19,6 +19,10 @@
 
     <!-- Strings related to Settings -->
 
+    <!-- General Settings - firas -->
+    <string name="pref_enable_email_notifications">Enable Email Notifications</string>
+    <string name="pref_enable_mobile_notifications">Enable Mobile Notifications</string>
+
     <!-- Example General settings -->
     <string name="pref_header_general">General</string>
 

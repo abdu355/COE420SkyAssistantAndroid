@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,101 +12,130 @@
     tools:context="com.example.b00047562.skyassistant.UserProfile"
     tools:showIn="@layout/activity_user_profile">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:id="@+id/nametext"
-        android:layout_marginTop="51dp"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profilepicture"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </TableRow>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/name"
-        android:layout_alignBottom="@+id/nametext"
-        android:layout_alignParentEnd="true" />
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Username"
-        android:layout_below="@+id/name"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView"
-        android:id="@+id/usernametext" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:id="@+id/nametext"
+            android:layout_weight="1" />
 
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/username"
-        android:layout_below="@+id/usernametext"
-        android:layout_alignStart="@+id/phone" />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/name"
+            android:layout_alignBottom="@+id/nametext"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:id="@+id/emailtext"
-        android:layout_alignBottom="@+id/username"
-        android:layout_alignEnd="@+id/phonetext" />
+    </TableRow>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/email"
-        android:layout_below="@+id/username"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="40dp" />
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Phone"
-        android:id="@+id/phonetext"
-        android:layout_alignTop="@+id/email"
-        android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:id="@+id/emailtext"
+            android:layout_alignEnd="@+id/phonetext"
+            android:layout_weight="1" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/phone"
-        android:layout_alignBottom="@+id/phonetext"
-        android:layout_alignParentEnd="true" />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/email"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/name"
+            android:layout_weight="1" />
+    </TableRow>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password"
-        android:id="@+id/passwordtext"
-        android:layout_alignBottom="@+id/email"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="40dp" />
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Change password"
-        android:id="@+id/changepass"
-        android:layout_below="@+id/passwordtext"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="53dp"
-        android:textColor="#ffffff" />
-</RelativeLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:id="@+id/phonetext"
+            android:layout_alignTop="@+id/email"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/phone"
+            android:layout_alignBottom="@+id/phonetext"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:id="@+id/passwordtext"
+            android:layout_alignBottom="@+id/email"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Change password"
+            android:id="@+id/changepass"
+            android:layout_below="@+id/passwordtext"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="53dp"
+            android:textColor="#ffffff"
+            android:layout_weight="1" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="Save"
+            android:id="@+id/save"
+            android:layout_weight="1"
+            android:layout_column="18" />
+    </TableRow>
+
+</TableLayout>
