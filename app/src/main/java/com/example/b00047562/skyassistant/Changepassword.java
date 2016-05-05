@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+
 public class Changepassword extends AppCompatActivity implements OnClickListener{
 
     private EditText previouspass;
@@ -20,6 +23,7 @@ public class Changepassword extends AppCompatActivity implements OnClickListener
     private EditText confirmpass;
     private Button changepass;
     private String correctpreviouspasswordstring;
+    String newdummy;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +38,14 @@ public class Changepassword extends AppCompatActivity implements OnClickListener
         changepass.setOnClickListener(this);
 
         //-----------------------------------------DATABASE NEEDED HERE----------------------------------------------
-        correctpreviouspasswordstring=" "; //get correct previous password from database
+        correctpreviouspasswordstring="password"; //get correct previous password from database
     }
 
 
     @Override
     public void onClick(View v) {
         String previousdummy=previouspass.getText().toString();
-        String newdummy=newpass.getText().toString();
+        newdummy=newpass.getText().toString();
         String confirmdummy=confirmpass.getText().toString();
         if (previousdummy=="" || newdummy=="" || confirmdummy==""){
             Toast.makeText(getApplicationContext(),"One of the fields is empty!", Toast.LENGTH_SHORT);
@@ -65,8 +69,7 @@ public class Changepassword extends AppCompatActivity implements OnClickListener
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //-----------------------------------------DATABASE NEEDED HERE----------------------------------------------
-                //save the new password to the database
-
+                ParseUser.getCurrentUser().setPassword(newdummy);
 
                 Toast.makeText(getApplicationContext(),"Password Changed!", Toast.LENGTH_SHORT);
             }

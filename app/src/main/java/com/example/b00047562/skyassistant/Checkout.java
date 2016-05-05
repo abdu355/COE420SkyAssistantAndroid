@@ -3,8 +3,10 @@ package com.example.b00047562.skyassistant;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,8 +15,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class Checkout extends AppCompatActivity implements TextView.OnEditorActionListener, View.OnClickListener{
+import com.afollestad.materialdialogs.MaterialDialog;
 
+public class Checkout extends AppCompatActivity implements TextView.OnEditorActionListener{
+    boolean fieldsOK;
     private TextView FN;
     private TextView LN;
     private TextView AD;
@@ -27,7 +31,7 @@ public class Checkout extends AppCompatActivity implements TextView.OnEditorActi
     private TextView CN;
     private TextView ED;
     private TextView CV;
-    private TextView FNValue;
+    private EditText FNValue;
     private EditText LNValue;
     private EditText ADValue;
     private EditText CIValue;
@@ -40,7 +44,6 @@ public class Checkout extends AppCompatActivity implements TextView.OnEditorActi
     private Spinner CTSpin;
     private Spinner ED1Spin;
     private Spinner ED2Spin;
-    private Button B;
     private SharedPreferences savedValues;
     String FNString;
     String LNString;
@@ -56,7 +59,7 @@ public class Checkout extends AppCompatActivity implements TextView.OnEditorActi
     String ED1String;
     String ED2String;
 
-
+    MaterialDialog mdiag;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +77,6 @@ public class Checkout extends AppCompatActivity implements TextView.OnEditorActi
         CTSpin = (Spinner) findViewById(R.id.card);
         ED1Spin = (Spinner) findViewById(R.id.ex_day);
         ED2Spin = (Spinner) findViewById(R.id.ex_year);
-        B = (Button) findViewById(R.id.btn_viewsched);
         FNValue.setOnEditorActionListener(this);
         LNValue.setOnEditorActionListener(this);
         ADValue.setOnEditorActionListener(this);
@@ -83,7 +85,6 @@ public class Checkout extends AppCompatActivity implements TextView.OnEditorActi
         PNValue.setOnEditorActionListener(this);
         CNValue.setOnEditorActionListener(this);
         CVValue.setOnEditorActionListener(this);
-        B.setOnClickListener(this);
         savedValues = getSharedPreferences("SavedValues", MODE_PRIVATE);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.SR_array, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -101,14 +102,36 @@ public class Checkout extends AppCompatActivity implements TextView.OnEditorActi
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ED2Spin.setAdapter(adapter5);
 
-
-
-        Button completepurchase = (Button)findViewById(R.id.btn_viewsched);
+        Button completepurchase = (Button)findViewById(R.id.btn_submit);
 
         completepurchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Confirmation.class));
+                fieldsOK=validate(new EditText[]{FNValue, LNValue, ADValue,CIValue,ZIValue,PNValue,CNValue,CVValue});
+                if(fieldsOK==true){
+                    mdiag = new MaterialDialog.Builder(Checkout.this)
+                            .title("Reservation")
+                            .content("Purchasing...")
+                            .progress(true, 0)
+                            .show();
+                    new Handler().postDelayed(new Runnable(){
+                        @Override
+                        public void run() {
+                            mdiag.dismiss();
+                        }
+                    }, 5000);
+                    startActivity(new Intent(getApplicationContext(),Confirmation.class));
+                }
+
+                else
+                {
+                    new MaterialDialog.Builder(Checkout.this)
+                            .title("Invalid")
+                            .content("Please fill All fields")
+                            .neutralText("OK")
+                            .neutralColorRes(R.color.colorPrimary)
+                            .show();
+                }
             }
         });
     }
@@ -170,12 +193,18 @@ public class Checkout extends AppCompatActivity implements TextView.OnEditorActi
 
 
     @Override
-    public void onClick(View v) {
-        StoreDB();
-    }
-
-    @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         return false;
+    }
+
+    private boolean validate(EditText[] fields){
+        for(int i=0; i<fields.length; i++){
+            EditText currentField=fields[i];
+            if(TextUtils.isEmpty(currentField.getText().toString()))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -64,11 +64,15 @@ public class ParseFunctions {
         try {
             ParseObject flightob = ParseObject.createWithoutData("Flight", flight.getFlightID());
             ParseObject ob = new ParseObject(params[0]);
-            ob.put(params[1],params[2]);
+            //ob.put(params[1],params[2]);
             ob.put("username", user.getUsername());
             ob.put("createdBy", user);
             ob.put("flightID",flightob);
-            ob.put("resDate",params[3]);
+            ob.put("resDate",params[1]);
+            ob.put("ticketno",params[2]);
+            ob.put("gateno",params[3]);
+            ob.put("class",params[4]);
+            ob.put("seat",params[5]);
             ob.saveEventually();
         } catch (Exception e) {
             Log.d("ParseError", e.getMessage());
@@ -100,9 +104,9 @@ public class ParseFunctions {
         String destinationLoc;
         String departureDate;
         String arrivalDate;
+        ParseObject ob;
 
-        ParseQuery<ParseObject> query = ParseQuery.getQuery(params[0]);
-        query.whereEqualTo("createdBy",user);
+        ParseQuery<ParseObject> query =  new ParseQuery<ParseObject>("Flight");
         query.orderByDescending("createdAt");
         try {
             List<ParseObject> results = query.find();
@@ -113,11 +117,12 @@ public class ParseFunctions {
             destinationLoc = results.get(listpointer).getString("destinationLoc");
             departureDate = results.get(listpointer).getString("departureDate");
             arrivalDate = results.get(listpointer).getString("arrivalDate");
-
+            Log.d("ParseExc",ID+price+airline+departureLoc);
             retflight = new Flight(ID,price,airline,departureLoc,destinationLoc,departureDate,arrivalDate);
         } catch (ParseException e) {
-            Log.d("ParseExc","DBError");
-            e.printStackTrace();
+            Log.d("ParseExc",e.getMessage());
+        }catch(IndexOutOfBoundsException e) {
+            Log.d("ParseExc",e.getMessage());
         }
 
         return retflight;
@@ -127,7 +132,11 @@ public class ParseFunctions {
     {
         String ID;
         String flightID;
-        Date resDate;
+        String resDate;
+        String ticketno;
+        String gateno;
+        String flightclass;
+        String seatno;
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery(params[0]);
         query.whereEqualTo("createdBy", user);
@@ -136,7 +145,7 @@ public class ParseFunctions {
             List<ParseObject> results = query.find();
             ID = results.get(0).getObjectId();
             flightID = results.get(0).getString("flightID");
-            resDate = results.get(0).getDate("resDate");
+            resDate = results.get(0).getString("resDate");
             retreservation = new Reservation(ID,flightID,resDate);
         } catch (ParseException e) {
             e.printStackTrace();

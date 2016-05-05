@@ -14,22 +14,12 @@
     android:id="@+id/airlineback">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Flight Prices for Preferred Airlines"
-        android:id="@+id/textView2"
-        android:textSize="20sp"
-        android:textColor="#ffffff" />
-
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:layout_below="@+id/textView2"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="70dp"
         android:background="@color/textColor"/>
 
     <com.github.mikephil.charting.charts.LineChart
@@ -40,5 +30,32 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="259dp"
         android:background="@color/textColor"/>
+
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:id="@+id/airlineselect"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Average Ticket Price"
+        android:id="@+id/textView30"
+        android:layout_below="@+id/airlineselect"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Average Reservations"
+        android:id="@+id/textView31"
+        android:layout_below="@+id/chart"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>

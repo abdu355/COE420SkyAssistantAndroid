@@ -17,6 +17,7 @@ import com.commit451.nativestackblur.NativeStackBlur;
 import com.parse.ParseUser;
 
 import java.math.BigInteger;
+import java.util.Date;
 import java.util.Random;
 
 import dbhandler.ParseFunctions;
@@ -38,7 +39,7 @@ public class newReservation extends AppCompatActivity {
     private TextView BT;
     private TextView TicketNum;
     ParseFunctions customParse;
-
+    Flight myflight ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,19 +57,22 @@ public class newReservation extends AppCompatActivity {
         TicketNum = (TextView) findViewById(R.id.ticketnum);
         customParse = new ParseFunctions();
         // replace "" with value you get from the DB
-        Flight myflight ;
-        myflight = customParse.getParseFlight(ParseUser.getCurrentUser(),3,"Flight");
+
+        Intent newintent=getIntent();
+        int pointer = newintent.getIntExtra("pointer",3);
+
+        myflight = customParse.getParseFlight(ParseUser.getCurrentUser(),pointer);
 
         AirLine.setText(myflight.getAirline());
-        Name.setText(myflight.getFlightID());
+        Name.setText(ParseUser.getCurrentUser().getUsername());
         From.setText(myflight.getDepartureLoc());
         To.setText(myflight.getDestinationLoc());
-        Carrier.setText("N/A");
+        Carrier.setText(myflight.getFlightID());
         Gate.setText("T1");
         Class.setText("Economy");
         Date.setText(myflight.getDepartureDate());
-        Seat.setText("S232");
-        BT.setText("N/A");
+        Seat.setText("A32");
+        BT.setText("AED "+myflight.getPrice());
         TicketNum.setText(String.valueOf(new BigInteger(32, new Random())));
 
 
@@ -86,6 +90,7 @@ public class newReservation extends AppCompatActivity {
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                customParse.pushReserveData(ParseUser.getCurrentUser(),myflight,"Reservation",new Date().toString(),TicketNum.getText().toString(),Gate.getText().toString(),Class.getText().toString(),Seat.getText().toString());
                 startActivity(new Intent(getApplicationContext(),Checkout.class));
             }
         });

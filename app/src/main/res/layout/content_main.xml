@@ -37,7 +37,7 @@
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:text="My Reservations"
-        android:id="@+id/button"
+        android:id="@+id/btn_myRes"
         android:textColor="#ffffff"
         android:layout_below="@+id/btn_airlineview"
         android:layout_alignParentEnd="true"

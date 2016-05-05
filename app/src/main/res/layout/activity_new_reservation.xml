@@ -28,13 +28,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Passenger Name"
+        android:text="Passenger Name:"
         android:id="@+id/textView"
         android:layout_below="@+id/Airlines"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="31dp"
         android:textColor="#ffffff" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/from"
+        android:layout_alignParentStart="true"></LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,7 +52,8 @@
         android:layout_alignTop="@+id/textView"
         android:layout_toRightOf="@+id/Airlines"
         android:layout_toEndOf="@+id/Airlines"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:layout_marginLeft="55dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -152,7 +160,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Boarding Time"
+        android:text="Price"
         android:id="@+id/textView9"
         android:layout_below="@+id/textView8"
         android:layout_alignParentLeft="true"
@@ -256,4 +264,5 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textColor="#ffffff" />
+
 </RelativeLayout>

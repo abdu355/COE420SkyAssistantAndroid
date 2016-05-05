@@ -130,7 +130,7 @@ public class UserProfile extends AppCompatActivity implements OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.changepass:
-                //startActivity(new Intent(getApplicationContext(), Changepassword.class));
+                startActivity(new Intent(getApplicationContext(), Changepassword.class));
                 //ParseUser.getCurrentUser().setPassword();
                 break;
             case R.id.save:

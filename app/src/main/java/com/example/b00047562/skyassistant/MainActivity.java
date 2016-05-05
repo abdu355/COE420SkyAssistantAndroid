@@ -38,7 +38,7 @@ import objects.Flight;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button prefs,airview,sugg;
+    Button prefs,airview,sugg,myRes;
     ListView list;
     ArrayList<String> flights;
     ArrayAdapter<String> adapter;
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         list=(ListView)findViewById(R.id.listView);
         prefs=(Button)findViewById(R.id.btn_prefs);
+        myRes=(Button)findViewById(R.id.btn_myRes);
         airview=(Button)findViewById(R.id.btn_airlineview);
         sugg=(Button)findViewById(R.id.btn_suggestions);
 
@@ -85,6 +86,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),Suggestions.class));
+            }
+        });
+        myRes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),myReservations.class));
             }
         });
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -234,5 +241,11 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         if(currentUser!=null)
              new RemoteDataTask().execute();
+    }
+
+    @Override
+    protected void onPause() {
+        new RemoteDataTask().cancel(true);
+        super.onPause();
     }
 }

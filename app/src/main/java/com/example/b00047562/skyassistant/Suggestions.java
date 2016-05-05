@@ -54,11 +54,13 @@ public class Suggestions extends AppCompatActivity {
                         case 0:
                             // Go to child #0 specific class.
                             Intent child0Intent = new Intent(getApplicationContext(), newReservation.class);
+                            child0Intent.putExtra("pointer",3);
                             startActivity(child0Intent);
                             break;
                         case 1:
                             // Go to child #1 specific class.
                             Intent child1Intent = new Intent(getApplicationContext(), newReservation.class);
+                            child1Intent.putExtra("pointer",5);
                             startActivity(child1Intent);
                             break;
                     }
@@ -69,12 +71,8 @@ public class Suggestions extends AppCompatActivity {
                         case 0:
                             // Go to child #0 specific class.
                             Intent child0Intent = new Intent(getApplicationContext(), newReservation.class);
-                            //startActivity(child0Intent);
-                            break;
-                        case 1:
-                            // Go to child #1 specific class.
-                            Intent child1Intent = new Intent(getApplicationContext(), newReservation.class);
-                            //startActivity(child1Intent);
+                            child0Intent.putExtra("pointer",4);
+                            startActivity(child0Intent);
                             break;
                     }
                 }
@@ -84,17 +82,20 @@ public class Suggestions extends AppCompatActivity {
                         case 0:
                             // Go to child #0 specific class.
                             Intent child0Intent = new Intent(getApplicationContext(), newReservation.class);
-                            //startActivity(child0Intent);
+                            child0Intent.putExtra("pointer",2);
+                            startActivity(child0Intent);
                             break;
                         case 1:
                             // Go to child #1 specific class.
                             Intent child1Intent = new Intent(getApplicationContext(), newReservation.class);
-                            //startActivity(child1Intent);
+                            child1Intent.putExtra("pointer",1);
+                            startActivity(child1Intent);
                             break;
                         case 2:
                             // Go to child #1 specific class.
                             Intent child2Intent = new Intent(getApplicationContext(), newReservation.class);
-                            //startActivity(child1Intent);
+                            child2Intent.putExtra("pointer",0);
+                            startActivity(child2Intent);
                             break;
                     }
                 }

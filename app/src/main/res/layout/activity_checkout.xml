@@ -156,7 +156,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
-        android:id="@+id/btn_viewsched"
+        android:id="@+id/btn_submit"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textColor="#100101" />
@@ -165,18 +165,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
         android:ems="10"
         android:id="@+id/Fn"
         android:layout_alignBottom="@+id/textView12"
-        android:layout_toRightOf="@+id/btn_viewsched"
-        android:layout_toEndOf="@+id/btn_viewsched" />
+        android:layout_toRightOf="@+id/btn_submit"
+        android:layout_toEndOf="@+id/btn_submit" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
         android:ems="10"
         android:id="@+id/Ln"
         android:layout_above="@+id/textView14"
@@ -285,8 +283,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/ex_day"
         android:layout_toLeftOf="@+id/cn"
-        android:layout_alignLeft="@+id/btn_viewsched"
-        android:layout_alignStart="@+id/btn_viewsched"
+        android:layout_alignLeft="@+id/btn_submit"
+        android:layout_alignStart="@+id/btn_submit"
         android:layout_below="@+id/cn"
         android:layout_above="@+id/textView24" />
 

@@ -24,7 +24,6 @@ public class Confirmation extends AppCompatActivity {
         setContentView(R.layout.activity_confirmation);
 
 
-
         //------------------------------------------------------ Add background image
         confirmback=(RelativeLayout)findViewById(R.id.confirmback);
         Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.skybackground2);
