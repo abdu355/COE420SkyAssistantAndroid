@@ -1,4 +1,4 @@
-package com.example.b00047562.skyassistant;
+package objects;
 
 import java.util.Date;
 
@@ -11,9 +11,9 @@ public class Flight {
     String FlightID;
     String Airline;
     String DepartureLoc, DestinationLoc;
-    Date DepartureDate, ArrivalDate;
+    String DepartureDate, ArrivalDate;
 
-    public Flight(String flightID, int price, String airline, String departureLoc, String destinationLoc, Date departureDate, Date arrivalDate) {
+    public Flight(String flightID, int price, String airline, String departureLoc, String destinationLoc, String departureDate, String arrivalDate) {
         FlightID = flightID;
         Price = price;
         Airline = airline;
@@ -63,19 +63,19 @@ public class Flight {
         DestinationLoc = destinationLoc;
     }
 
-    public Date getDepartureDate() {
+    public String getDepartureDate() {
         return DepartureDate;
     }
 
-    public void setDepartureDate(Date departureDate) {
+    public void setDepartureDate(String departureDate) {
         DepartureDate = departureDate;
     }
 
-    public Date getArrivalDate() {
+    public String getArrivalDate() {
         return ArrivalDate;
     }
 
-    public void setArrivalDate(Date arrivalDate) {
+    public void setArrivalDate(String arrivalDate) {
         ArrivalDate = arrivalDate;
     }
 }

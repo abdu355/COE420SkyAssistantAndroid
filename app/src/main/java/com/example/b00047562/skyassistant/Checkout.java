@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -75,7 +74,7 @@ public class Checkout extends AppCompatActivity implements TextView.OnEditorActi
         CTSpin = (Spinner) findViewById(R.id.card);
         ED1Spin = (Spinner) findViewById(R.id.ex_day);
         ED2Spin = (Spinner) findViewById(R.id.ex_year);
-        B = (Button) findViewById(R.id.btn_submit);
+        B = (Button) findViewById(R.id.btn_viewsched);
         FNValue.setOnEditorActionListener(this);
         LNValue.setOnEditorActionListener(this);
         ADValue.setOnEditorActionListener(this);
@@ -104,7 +103,7 @@ public class Checkout extends AppCompatActivity implements TextView.OnEditorActi
 
 
 
-        Button completepurchase = (Button)findViewById(R.id.btn_submit);
+        Button completepurchase = (Button)findViewById(R.id.btn_viewsched);
 
         completepurchase.setOnClickListener(new View.OnClickListener() {
             @Override

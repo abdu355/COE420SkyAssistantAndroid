@@ -10,15 +10,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.b00047562.skyassistant.UserProfile"
-    tools:showIn="@layout/activity_user_profile">
+    tools:showIn="@layout/activity_user_profile"
+    android:orientation="horizontal"
+    android:id="@+id/userprofileback">
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:id="@+id/profilepicture"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -34,7 +36,8 @@
             android:layout_height="wrap_content"
             android:text="Name"
             android:id="@+id/nametext"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#ffffff" />
 
         <EditText
             android:layout_width="0dp"
@@ -44,7 +47,8 @@
             android:id="@+id/name"
             android:layout_alignBottom="@+id/nametext"
             android:layout_alignParentEnd="true"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#ffffff" />
 
     </TableRow>
 
@@ -58,7 +62,8 @@
             android:text="Email"
             android:id="@+id/emailtext"
             android:layout_alignEnd="@+id/phonetext"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#ffffff" />
 
         <EditText
             android:layout_width="0dp"
@@ -68,7 +73,8 @@
             android:id="@+id/email"
             android:layout_alignParentEnd="true"
             android:layout_below="@+id/name"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#ffffff" />
     </TableRow>
 
     <TableRow
@@ -82,7 +88,8 @@
             android:id="@+id/phonetext"
             android:layout_alignTop="@+id/email"
             android:layout_alignParentStart="true"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#ffffff" />
 
         <EditText
             android:layout_width="0dp"
@@ -92,7 +99,8 @@
             android:id="@+id/phone"
             android:layout_alignBottom="@+id/phonetext"
             android:layout_alignParentEnd="true"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#ffffff" />
     </TableRow>
 
     <TableRow
@@ -107,7 +115,8 @@
             android:layout_alignBottom="@+id/email"
             android:layout_alignParentStart="true"
             android:layout_marginTop="40dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#ffffff" />
 
         <Button
             android:layout_width="0dp"
@@ -135,7 +144,11 @@
             android:text="Save"
             android:id="@+id/save"
             android:layout_weight="1"
-            android:layout_column="18" />
+            android:layout_column="0"
+            android:layout_marginTop="20dp"
+            android:textColor="#ffffff"
+            android:layout_width="fill_parent"
+            android:layout_span="19" />
     </TableRow>
 
 </TableLayout>

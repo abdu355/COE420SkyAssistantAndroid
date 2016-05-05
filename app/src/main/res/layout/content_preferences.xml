@@ -28,7 +28,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Add Event"
+        android:text="Add to Schedule"
         android:id="@+id/btn_addevent"
         android:layout_below="@+id/calendarView"
         android:layout_alignParentStart="true"
@@ -39,8 +39,8 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="My Events"
-        android:id="@+id/btn_submit"
+        android:text="My Schedule"
+        android:id="@+id/btn_viewsched"
         android:layout_below="@+id/btn_addevent"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="false"

@@ -2,17 +2,24 @@ package dbhandler;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.ImageView;
 
-import com.example.b00047562.skyassistant.Calendar;
-import com.example.b00047562.skyassistant.Flight;
+import objects.Calendar;
+import objects.Flight;
 import broker.Reservation;
+import objects.User;
 
+import com.parse.GetCallback;
+import com.parse.GetDataCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.lang.reflect.Type;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -84,31 +91,32 @@ public class ParseFunctions {
 
     }
 
-    public Flight getParseFlight(ParseUser user, String... params)
+    public Flight getParseFlight(ParseUser user, int listpointer, String... params)
     {
         String ID;
         int price;
         String airline;
         String departureLoc;
         String destinationLoc;
-        Date departureDate;
-        Date arrivalDate;
+        String departureDate;
+        String arrivalDate;
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery(params[0]);
-        query.whereEqualTo("createdBy", user);
+        query.whereEqualTo("createdBy",user);
         query.orderByDescending("createdAt");
         try {
             List<ParseObject> results = query.find();
-            ID = results.get(0).getObjectId();
-            price = results.get(0).getInt("price");
-            airline = results.get(0).getString("airline");
-            departureLoc = results.get(0).getString("departureLoc");
-            destinationLoc = results.get(0).getString("destinationLoc");
-            departureDate = results.get(0).getDate("departureDate");
-            arrivalDate = results.get(0).getDate("arrivalDate");
+            ID = results.get(listpointer).getObjectId();
+            price = results.get(listpointer).getInt("price");
+            airline = results.get(listpointer).getString("airline");
+            departureLoc = results.get(listpointer).getString("departureLoc");
+            destinationLoc = results.get(listpointer).getString("destinationLoc");
+            departureDate = results.get(listpointer).getString("departureDate");
+            arrivalDate = results.get(listpointer).getString("arrivalDate");
 
             retflight = new Flight(ID,price,airline,departureLoc,destinationLoc,departureDate,arrivalDate);
         } catch (ParseException e) {
+            Log.d("ParseExc","DBError");
             e.printStackTrace();
         }
 
@@ -140,7 +148,7 @@ public class ParseFunctions {
     public Calendar getParseCalendar(ParseUser user, String... params)
     {
         String resID;
-        Date eventDate;
+        String eventDate;
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery(params[0]);
         query.whereEqualTo("createdBy", user);
@@ -148,13 +156,35 @@ public class ParseFunctions {
         try {
             List<ParseObject> results = query.find();
             resID = results.get(0).getString("resID");
-            eventDate = results.get(0).getDate("eventDate");
+            eventDate = results.get(0).getString("eventDate");
             usercal = new Calendar(eventDate,resID);
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
         return usercal;
+    }
+
+    public User getParseUserProfile(ParseUser user, String... params)
+    {
+        String profilename;
+        String profileemail;
+        String profilephone;
+        String password;
+
+        return new User(null,null,null);
+    }
+    public Date returnDateformat(String date) {
+
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+        Date startDate= new Date();
+        try {
+            startDate = df.parse(date);
+            //String newDateString = df.format(startDate);
+        } catch (java.text.ParseException e) {
+            e.printStackTrace();
+        }
+        return startDate;
     }
 
 }

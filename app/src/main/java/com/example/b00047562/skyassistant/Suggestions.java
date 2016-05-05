@@ -66,17 +66,37 @@ public class Suggestions extends AppCompatActivity {
                 else if (i==1) //group 2
                 {
                     switch (i1) {
-                    case 0:
-                        // Go to child #0 specific class.
-                        Intent child0Intent = new Intent(getApplicationContext(), newReservation.class);
-                        //startActivity(child0Intent);
-                        break;
-                    case 1:
-                        // Go to child #1 specific class.
-                        Intent child1Intent = new Intent(getApplicationContext(), newReservation.class);
-                        //startActivity(child1Intent);
-                        break;
+                        case 0:
+                            // Go to child #0 specific class.
+                            Intent child0Intent = new Intent(getApplicationContext(), newReservation.class);
+                            //startActivity(child0Intent);
+                            break;
+                        case 1:
+                            // Go to child #1 specific class.
+                            Intent child1Intent = new Intent(getApplicationContext(), newReservation.class);
+                            //startActivity(child1Intent);
+                            break;
+                    }
                 }
+                else if (i==2) //group 3
+                {
+                    switch (i1) {
+                        case 0:
+                            // Go to child #0 specific class.
+                            Intent child0Intent = new Intent(getApplicationContext(), newReservation.class);
+                            //startActivity(child0Intent);
+                            break;
+                        case 1:
+                            // Go to child #1 specific class.
+                            Intent child1Intent = new Intent(getApplicationContext(), newReservation.class);
+                            //startActivity(child1Intent);
+                            break;
+                        case 2:
+                            // Go to child #1 specific class.
+                            Intent child2Intent = new Intent(getApplicationContext(), newReservation.class);
+                            //startActivity(child1Intent);
+                            break;
+                    }
                 }
                 return false;
             }
@@ -102,29 +122,23 @@ public class Suggestions extends AppCompatActivity {
         listDataHeader.add("Etihad Airways");
 
         // Adding child data
-        List<String> top250 = new ArrayList<String>();
-        top250.add("Flight 1");
-        top250.add("Flight 2");
+        List<String> emirates = new ArrayList<String>();
+        emirates.add("Luxembourg\n12/06/2017 02:00:00");
+        emirates.add("Leipzig\n23/05/2016 11:30:00");
 
 
-        List<String> nowShowing = new ArrayList<String>();
-        nowShowing.add("Flight 1");
-        nowShowing.add("Flight 2");
-        nowShowing.add("Flight 3");
-        nowShowing.add("Flight 4");
-        nowShowing.add("Flight 5");
-        nowShowing.add("Flight 6");
+        List<String> aircanada = new ArrayList<String>();
+        aircanada.add("Brazil\n12/06/2017 02:00:00");
 
-        List<String> comingSoon = new ArrayList<String>();
-        comingSoon.add("Flight 1");
-        comingSoon.add("Flight 2");
-        comingSoon.add("Flight 3");
-        comingSoon.add("Flight 4");
-        comingSoon.add("Flight 5");
+        List<String> etihadairways = new ArrayList<String>();
+        etihadairways.add("Luxembourg\n12/06/2017 02:00:00");
+        etihadairways.add("Delhi\n03/02/2016 07:00:00");
+        etihadairways.add("Sacremento\n03/03/2016 07:00:00");
 
-        listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), nowShowing);
-        listDataChild.put(listDataHeader.get(2), comingSoon);
+
+        listDataChild.put(listDataHeader.get(0), emirates); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), aircanada);
+        listDataChild.put(listDataHeader.get(2), etihadairways);
     }
 
 

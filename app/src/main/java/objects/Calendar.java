@@ -1,4 +1,4 @@
-package com.example.b00047562.skyassistant;
+package objects;
 
 import java.util.Date;
 
@@ -6,12 +6,12 @@ import java.util.Date;
  * Created by Administrator on 4/29/2016.
  */
 public class Calendar {
-    Date eventDate;
+    String eventDate;
     String reservationID;
 
 
 
-    public Calendar (Date eventDate, String reservationID)
+    public Calendar (String eventDate, String reservationID)
     {
 
         this.eventDate = eventDate;
@@ -19,11 +19,11 @@ public class Calendar {
 
     }
 
-    public Date getEventDate() {
+    public String getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
     }
 

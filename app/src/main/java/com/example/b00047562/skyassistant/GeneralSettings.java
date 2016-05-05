@@ -9,12 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 
+@SuppressWarnings("ALL")
 public class GeneralSettings extends PreferenceActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_general_settings);
+        //setContentView(R.layout.activity_general_settings);
         addPreferencesFromResource(R.xml.pref_generalsettings);
 
     }

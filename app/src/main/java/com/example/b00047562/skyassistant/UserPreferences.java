@@ -30,7 +30,7 @@ import java.util.List;
 
 public class UserPreferences extends AppCompatActivity implements View.OnClickListener {
 
-    Button addevent;
+    Button addevent,viewevents;
     MaterialCalendarView cal;
     //EditText eventname;
     CalendarDay calday;
@@ -48,7 +48,9 @@ public class UserPreferences extends AppCompatActivity implements View.OnClickLi
         cal = (MaterialCalendarView) findViewById(R.id.calendarView);
         //eventname = (EditText)findViewById(R.id.editText);
         addevent = (Button) findViewById(R.id.btn_addevent);
+        viewevents=(Button)findViewById(R.id.btn_viewsched);
         addevent.setOnClickListener(this);
+        viewevents.setOnClickListener(this);
 
         //------------------------------------------------------ Add background image
         userprefback=(RelativeLayout)findViewById(R.id.userprefback);
@@ -80,7 +82,9 @@ public class UserPreferences extends AppCompatActivity implements View.OnClickLi
                     Toast.makeText(getApplicationContext(),"Select a Date first !",Toast.LENGTH_SHORT).show();
                 }
                 break;
-
+            case R.id.btn_viewsched:
+                startActivity(new Intent(this,mySchedule.class));
+                break;
         }
     }
 

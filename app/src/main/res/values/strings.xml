@@ -176,5 +176,6 @@
     <string name="login_error_title">Invalid Login</string>
     <string name="signup_error_message">Fill all fields</string>
     <string name="signup_error_title">Invalid</string>
+    <string name="title_activity_my_schedule">mySchedule</string>
 
 </resources>

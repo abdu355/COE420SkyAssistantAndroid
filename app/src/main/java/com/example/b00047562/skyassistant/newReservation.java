@@ -14,6 +14,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.commit451.nativestackblur.NativeStackBlur;
+import com.parse.ParseUser;
+
+import java.math.BigInteger;
+import java.util.Random;
+
+import dbhandler.ParseFunctions;
+import objects.Flight;
 
 public class newReservation extends AppCompatActivity {
 
@@ -30,6 +37,7 @@ public class newReservation extends AppCompatActivity {
     private TextView Seat;
     private TextView BT;
     private TextView TicketNum;
+    ParseFunctions customParse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,20 +54,22 @@ public class newReservation extends AppCompatActivity {
         Seat = (TextView) findViewById(R.id.Seat);
         BT = (TextView) findViewById(R.id.bt);
         TicketNum = (TextView) findViewById(R.id.ticketnum);
-
+        customParse = new ParseFunctions();
         // replace "" with value you get from the DB
+        Flight myflight ;
+        myflight = customParse.getParseFlight(ParseUser.getCurrentUser(),3,"Flight");
 
-        AirLine.setText("");
-        Name.setText("");
-        From.setText("");
-        To.setText("");
-        Carrier.setText("");
-        Gate.setText("");
-        Class.setText("");
-        Date.setText("");
-        Seat.setText("");
-        BT.setText("");
-        TicketNum.setText("");
+        AirLine.setText(myflight.getAirline());
+        Name.setText(myflight.getFlightID());
+        From.setText(myflight.getDepartureLoc());
+        To.setText(myflight.getDestinationLoc());
+        Carrier.setText("N/A");
+        Gate.setText("T1");
+        Class.setText("Economy");
+        Date.setText(myflight.getDepartureDate());
+        Seat.setText("S232");
+        BT.setText("N/A");
+        TicketNum.setText(String.valueOf(new BigInteger(32, new Random())));
 
 
         //------------------------------------------------------ Add background image
