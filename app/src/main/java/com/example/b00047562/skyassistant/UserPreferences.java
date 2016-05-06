@@ -33,20 +33,20 @@ public class UserPreferences extends AppCompatActivity implements View.OnClickLi
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        cal = (MaterialCalendarView) findViewById(R.id.calendarView);
+        //cal = (MaterialCalendarView) findViewById(R.id.calendarView);
         //eventname = (EditText)findViewById(R.id.editText);
         addevent = (Button) findViewById(R.id.btn_addevent);
         viewevents=(Button)findViewById(R.id.btn_submit);
         addevent.setOnClickListener(this);
         viewevents.setOnClickListener(this);
 
-        //------------------------------------------------------ Add background image
-        userprefback=(RelativeLayout)findViewById(R.id.userprefback);
-        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.skybackground2);
-        Bitmap bm = NativeStackBlur.process(back, 250);
-        BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
-        userprefback.setBackground(ob);
-        //------------------------------------------------------ Add background image
+//        //------------------------------------------------------ Add background image
+//        userprefback=(RelativeLayout)findViewById(R.id.userprefback);
+//        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.skybackground2);
+//        Bitmap bm = NativeStackBlur.process(back, 250);
+//        BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
+//        userprefback.setBackground(ob);
+//        //------------------------------------------------------ Add background image
 
 
     }
@@ -59,7 +59,7 @@ public class UserPreferences extends AppCompatActivity implements View.OnClickLi
             case R.id.btn_addevent:
 
                 try {
-                    calday = cal.getSelectedDate();
+                    //calday = cal.getSelectedDate();
 
                     Intent sendtoDiag = new Intent(getApplicationContext(),AddeventDialogue.class);
                     sendtoDiag.putExtra("calendarTime",calday.getDate().getTime());

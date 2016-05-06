@@ -4,6 +4,7 @@ android {
 
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
+    useLibrary 'org.apache.http.legacy'
 
     defaultConfig {
         applicationId "com.example.b00047562.skyassistant"
@@ -37,4 +38,6 @@ dependencies {
     compile('com.github.afollestad.material-dialogs:core:0.8.5.8@aar') {
         transitive = true
     }
+    testCompile 'org.robolectric:robolectric:3.0'
+    testCompile 'org.assertj:assertj-core:1.7.1'
 }

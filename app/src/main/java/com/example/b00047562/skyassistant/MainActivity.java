@@ -74,11 +74,11 @@ public class MainActivity extends AppCompatActivity {
         sugg=(Button)findViewById(R.id.btn_suggestions);
 
         //------------------------------------------------------ Add background image
-        mainback=(RelativeLayout)findViewById(R.id.mainback);
-        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.skybackground2);
-        Bitmap bm = NativeStackBlur.process(back, 250);
-        BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
-        mainback.setBackground(ob);
+//        mainback=(RelativeLayout)findViewById(R.id.mainback);
+//        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.skybackground2);
+//        Bitmap bm = NativeStackBlur.process(back, 250);
+//        BitmapDrawable ob = new BitmapDrawable(getResources(), bm);
+//        mainback.setBackground(ob);
         //------------------------------------------------------ Add background image
 
         prefs.setOnClickListener(new View.OnClickListener() {
@@ -136,12 +136,12 @@ public class MainActivity extends AppCompatActivity {
 
         customParse = new ParseFunctions();
         usercal = new Calendar("date","1234");
-        currentUser = ParseUser.getCurrentUser();//check if user logged in
+        //currentUser = ParseUser.getCurrentUser();//check if user logged in
         //} catch (ParseException e) {
         //    e.printStackTrace();
         //}
         if (currentUser == null) {
-            loadLoginView();
+            //loadLoginView();
         }
         if(currentUser!=null)
              new RemoteDataTask().execute(); //get quick suggestion
