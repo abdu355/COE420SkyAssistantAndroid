@@ -1,6 +1,7 @@
 package com.example.b00047562.skyassistant;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -12,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -55,6 +57,25 @@ public class myReservations extends AppCompatActivity {
         myresback.setBackground(ob);
         //------------------------------------------------------ Add background image
         myreservastionlist = (ListView)findViewById(R.id.myReservationlist);
+        myreservastionlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                switch(i)
+                {
+                    case 0:
+                        startActivity(new Intent(myReservations.this,ticketView.class));
+                        break;
+                    case 1:
+                        //next ticket
+                        break;
+
+                    case 2:
+                        //next ticket
+                        break;
+                }
+            }
+        });
+
 
         new RemoteDataTask().execute();
 

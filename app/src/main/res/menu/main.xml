@@ -2,16 +2,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/settings"
-        app:showAsAction="ifRoom|withText"
+        app:showAsAction="always"
         android:title="Settings"
         android:icon="@drawable/ic_settings_black_48dp"/>
     <item
         android:id="@+id/profile"
-        app:showAsAction="ifRoom|withText"
+        app:showAsAction="always"
         android:title="User Profile"
         android:icon="@drawable/ic_account_box_black_48dp"/>
     <item
         android:id="@+id/logout"
-        app:showAsAction="ifRoom|withText"
+        app:showAsAction="never"
         android:title="Logout" />
 </menu>

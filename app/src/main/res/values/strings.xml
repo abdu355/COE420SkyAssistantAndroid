@@ -158,6 +158,19 @@
         <item>Air Canada</item>
         <item>Emirates</item>
         <item>Etihad Airways</item>
-
     </string-array>
+    <string-array name="Years">
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+    </string-array>
+    <string name="title_activity_ticket_view">Emirates Airlines</string>
+    <string name="title_activity_nav_drawer">navDrawer</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

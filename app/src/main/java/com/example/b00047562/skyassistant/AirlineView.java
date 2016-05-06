@@ -32,18 +32,21 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
+import objects.MyValueFormatter;
+
 public class AirlineView extends AppCompatActivity {
     BarChart chart;
     LineChart lineChart;
     private Typeface mTf;
     RelativeLayout airlineback;
-    Spinner airline;
+    Spinner airline,yearspinner;
     ArrayList<Entry> lineentries;
     LineDataSet dataset;
     LineData linedata;
     BarDataSet barDataSet1;
     BarDataSet barDataSet2;
     BarData data;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,11 +69,45 @@ public class AirlineView extends AppCompatActivity {
         chart = (BarChart) findViewById(R.id.chart);
         lineChart=(LineChart)findViewById(R.id.chart2);
         airline=(Spinner)findViewById(R.id.airlineselect);
-
+        yearspinner=(Spinner)findViewById(R.id.yearspinner);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Airlines, R.layout.spinner_items);
         adapter.setDropDownViewResource(R.layout.spinner_items_list);
         airline.setAdapter(adapter);
+
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.Years, R.layout.spinner_items);
+        adapter2.setDropDownViewResource(R.layout.spinner_items_list);
+        yearspinner.setAdapter(adapter2);
+
+        yearspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                switch(position)
+                {
+                    case 0:
+                        updateGraphs("Air Canada",  new float[]{234f,90f,788f,46f,543f,109f,65f,52f,289f,367f,121f,445f},getDataSet3() );
+
+                        break;
+
+                    case 1:
+                        updateGraphs("Emirates Airlines",new float[]{28f,90f,34f,46f,98f,109f,340f,23f,560f,367f,347f,97f},getDataSet());
+                        break;
+
+
+                    case 2:
+                        updateGraphs("Etihad Airways",new float[]{956f,123f,786f,344f,988f,777f,555f,786f,560f,888f,657f,986f},getDataSet2());
+
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+
+            }
+
+        });
+
 
         airline.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -403,10 +440,13 @@ public class AirlineView extends AppCompatActivity {
         barDataSet1.setColor(Color.rgb(0, 155, 0));
         barDataSet1.setValueTextSize(10);
         barDataSet1.setValueTextColor(R.color.textColor);
+        barDataSet1.setValueFormatter(new MyValueFormatter());
+
         barDataSet2 = new BarDataSet(valueSet2, "Other Airlines");
         barDataSet2.setColors(ColorTemplate.COLORFUL_COLORS);
         barDataSet2.setValueTextSize(10);
         barDataSet2.setValueTextColor(R.color.textColor);
+        barDataSet2.setValueFormatter(new MyValueFormatter());
 
 
         dataSets = new ArrayList<>();

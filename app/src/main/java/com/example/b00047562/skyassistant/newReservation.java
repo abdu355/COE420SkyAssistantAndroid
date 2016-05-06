@@ -20,6 +20,8 @@ import java.math.BigInteger;
 import java.util.Date;
 import java.util.Random;
 
+import broker.Reservation;
+import broker.ReservationHandler;
 import dbhandler.ParseFunctions;
 import objects.Flight;
 
@@ -40,6 +42,7 @@ public class newReservation extends AppCompatActivity {
     private TextView TicketNum;
     ParseFunctions customParse;
     Flight myflight ;
+    ReservationHandler agent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +61,7 @@ public class newReservation extends AppCompatActivity {
         customParse = new ParseFunctions();
         // replace "" with value you get from the DB
 
+        agent = new ReservationHandler(null);
         Intent newintent=getIntent();
         int pointer = newintent.getIntExtra("pointer",3);
 
@@ -84,13 +88,13 @@ public class newReservation extends AppCompatActivity {
         itemviewback.setBackground(ob);
         //------------------------------------------------------ Add background image
 
-
         Button checkout = (Button)findViewById(R.id.btn_reserve);
 
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customParse.pushReserveData(ParseUser.getCurrentUser(),myflight,"Reservation",new Date().toString(),TicketNum.getText().toString(),Gate.getText().toString(),Class.getText().toString(),Seat.getText().toString());
+                agent.MakeReservation(myflight,TicketNum.getText().toString(),Gate.getText().toString(),Class.getText().toString(),Seat.getText().toString());
+               // customParse.pushReserveData(ParseUser.getCurrentUser(),myflight,"Reservation",new Date().toString(),TicketNum.getText().toString(),Gate.getText().toString(),Class.getText().toString(),Seat.getText().toString());
                 startActivity(new Intent(getApplicationContext(),Checkout.class));
             }
         });

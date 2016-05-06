@@ -7,6 +7,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -48,13 +50,22 @@ public class MainActivity extends AppCompatActivity {
     List<ParseObject> ob;
     ParseFunctions customParse;
     Calendar usercal;
+
+    private ActionBarDrawerToggle mDrawerToggle;
+    private DrawerLayout mDrawerLayout;
+    private String mActivityTitle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
+        toolbar.setNavigationIcon(R.drawable.menu24);
+
+        //setupDrawer();
 
         list=(ListView)findViewById(R.id.listView);
         prefs=(Button)findViewById(R.id.btn_prefs);
@@ -165,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.settings:
                 startActivity(new Intent(this,GeneralSettings.class));
                 return true;
+
             default:
                 return super.onOptionsItemSelected(item);
 
@@ -248,4 +260,5 @@ public class MainActivity extends AppCompatActivity {
         new RemoteDataTask().cancel(true);
         super.onPause();
     }
+
 }

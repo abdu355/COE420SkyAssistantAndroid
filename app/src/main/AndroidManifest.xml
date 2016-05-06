@@ -131,12 +131,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.b00047562.skyassistant.MainActivity" />
         </activity>
-
         <activity
             android:name=".Changepassword"
             android:label="Change Password"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ticketView"
+            android:label="@string/title_activity_ticket_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".navDrawer"
+            android:label="@string/title_activity_nav_drawer"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
